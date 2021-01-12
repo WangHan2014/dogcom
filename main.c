@@ -166,7 +166,7 @@ int main(int argc, char *argv[]) {
 
 void print_help(int exval) {
     printf(
-        "                 __                   \n"
+        "                  __                   \n"
         "  _      ____  __/ /_  __  _____  _____            __                 \n"
         " | | /| / / / / / __ \\/ / / / _ \\/ ___/       ___/ /__________  __ _ \n"
         " | |/ |/ / /_/ / / / / /_/ /  __(__  )     / _  / __/ __/ _ \\/  ' \\\n"
@@ -184,9 +184,9 @@ void print_help(int exval) {
 
     printf("参数:\n");
     printf("\t--mode <dhcp/pppoe>, -m <dhcp/pppoe>  认证方式 \n");
-    printf("\t--conf <FILEPATH>, -c <FILEPATH>      认证配置文件路径\n");
+    printf("\t--conf <认证配置文件路径>, -c <认证配置文件路径>      认证配置文件路径\n");
     printf("\t--bindip <IPADDR>, -b <IPADDR>        绑定ip默认0.0.0.0（大部分为动态ip）此选项可以不用填\n");
-    printf("\t--log <LOGPATH>, -l <LOGPATH>         日志文件输出路径\n");
+    printf("\t--log <日志文件路径>, -l <日志文件路径>         日志文件输出路径\n");
 #ifdef linux
     printf("\t--daemon, -d                          保持进程一直在后台\n");
     printf("\t--802.1x, -x                          打开802.1x认证\n");

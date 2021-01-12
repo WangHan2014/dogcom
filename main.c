@@ -174,8 +174,8 @@ void print_help(int exval) {
         "\n"
     );
     printf("一个基于原版汉化的dogcom 版本： %s\n",VERSION);
-    printf("\n默认配置文件基于武汉工程科技学院\n");
-    printf("\n功能与原版一致，如需查看原版log请打开log记录\n");
+    printf("默认配置文件基于武汉工程科技学院\n");
+    printf("功能与原版一致，如需查看原版log请打开log记录\n");
 
     printf("\nDrcom-generic的C语言版本.\n");
 

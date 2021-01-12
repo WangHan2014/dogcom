@@ -59,7 +59,7 @@ int main(int argc, char *argv[]) {
                 } else if (strcmp(optarg, "pppoe") == 0) {
                     strcpy(mode, optarg);
                 } else {
-                    printf("unknown mode\n");
+                    printf("未知模式\n");
                     exit(1);
                 }
                 break;
@@ -157,7 +157,7 @@ int main(int argc, char *argv[]) {
         }
 #ifndef __APPLE__
     } else {
-        printf("Need more options!\n\n");
+        printf("需要更多参数！\n\n");
         return 1;
     }
 #endif
@@ -165,24 +165,35 @@ int main(int argc, char *argv[]) {
 }
 
 void print_help(int exval) {
-    printf("\nDrcom-generic implementation in C.\n");
-    printf("Version: %s\n\n", VERSION);
+    printf(
+        "                 __                   \n"
+        "  _      ____  __/ /_  __  _____  _____            __                 \n"
+        " | | /| / / / / / __ \\/ / / / _ \\/ ___/       ___/ /__________  __ _ \n"
+        " | |/ |/ / /_/ / / / / /_/ /  __(__  )     / _  / __/ __/ _ \\/  ' \\\n"
+        " |__/|__/\\__,_/_/ /_/\\__,_/\\___/____/       \\_,_/_/  \\__/\\___/_/_/_/\n"
+        "\n"
+    );
+    printf("一个基于原版汉化的dogcom 版本： %s\n",VERSION);
+    printf("\n默认配置文件基于武汉工程科技学院\n");
+    printf("\n功能与原版一致，如需查看原版log请打开log记录\n");
 
-    printf("Usage:\n");
+    printf("\nDrcom-generic的C语言版本.\n");
+
+    printf("使用方法:\n");
     printf("\tdogcom -m <dhcp/pppoe> -c <FILEPATH> [options <argument>]...\n\n");
 
-    printf("Options:\n");
-    printf("\t--mode <dhcp/pppoe>, -m <dhcp/pppoe>  set your dogcom mode \n");
-    printf("\t--conf <FILEPATH>, -c <FILEPATH>      import configuration file\n");
-    printf("\t--bindip <IPADDR>, -b <IPADDR>        bind your ip address(default is 0.0.0.0)\n");
-    printf("\t--log <LOGPATH>, -l <LOGPATH>         specify log file\n");
+    printf("参数:\n");
+    printf("\t--mode <dhcp/pppoe>, -m <dhcp/pppoe>  认证方式 \n");
+    printf("\t--conf <FILEPATH>, -c <FILEPATH>      认证配置文件路径\n");
+    printf("\t--bindip <IPADDR>, -b <IPADDR>        绑定ip默认0.0.0.0（大部分为动态ip）此选项可以不用填\n");
+    printf("\t--log <LOGPATH>, -l <LOGPATH>         日志文件输出路径\n");
 #ifdef linux
-    printf("\t--daemon, -d                          set daemon flag\n");
-    printf("\t--802.1x, -x                          enable 802.1x\n");
+    printf("\t--daemon, -d                          保持进程一直在后台\n");
+    printf("\t--802.1x, -x                          打开802.1x认证\n");
 #endif
-    printf("\t--eternal, -e                         set eternal flag\n");
-    printf("\t--verbose, -v                         set verbose flag\n");
-    printf("\t--help, -h                            display this help\n\n");
+    printf("\t--eternal, -e                         如果认证失败就重试\n");
+    printf("\t--verbose, -v                         在控制台输出日志\n");
+    printf("\t--help, -h                            显示帮助\n\n");
     exit(exval);
 }
 
